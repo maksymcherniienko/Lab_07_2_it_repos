@@ -6,14 +6,14 @@ using namespace std;
 
 void Create(int** a, const int rowCount, const int colCount, const int Low, const int High);
 void Print(int** a, const int rowCount, const int colCount);
-void FindMax(int** a, const int n, int& max);
+void Find(int** a, const int n, int& min);
 
 int main()
 {
 	srand((unsigned)time(NULL));
 	int Low = -42;
 	int High = 51;
-	int max;
+	int min;
 	int rowCount = 4;
 	int colCount = 4;
 	int** a = new int* [rowCount];
@@ -21,8 +21,8 @@ int main()
 		a[i] = new int[colCount];
 	Create(a, rowCount, colCount, Low, High);
 	Print(a, rowCount, colCount);
-	FindMax(a, rowCount, max);
-	cout << endl << "max = " << max << endl;
+	Find(a, rowCount, min);
+	cout << endl << "min = " << min << endl;
 	delete[] a;
 	return 0;
 }
@@ -46,15 +46,15 @@ void Print(int** a, const int rowCount, const int colCount)
 	cout << endl;
 }
 
-void FindMax(int** a, const int n, int& max)
+void Find(int** a, const int n, int& min)
 {
-	max = a[0][0]; // перший елемент головної діагоналі
+	min = a[0][0]; // перший елемент головної діагоналі
 
 	for (int i = 0; i < n; i++)
 	{
-		if (a[i][i] > max)
+		if (a[i][i] < min)
 		{
-			max = a[i][i]; // більший елемент
+			min = a[i][i]; // більший елемент
 		}
 	}
 }

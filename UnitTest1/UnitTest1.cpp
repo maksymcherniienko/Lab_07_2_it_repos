@@ -24,7 +24,7 @@ namespace UnitTest1
             a[1][1] = 7;
             int max = 0;
             int maxx = 7;
-            FindMax(a, rowCount, max);
+            Find(a, rowCount, max);
             Assert::AreEqual(max, maxx);
 
         }
